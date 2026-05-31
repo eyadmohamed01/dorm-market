@@ -45,7 +45,6 @@ main {
   gap: 12px;
   font-size: 22px;
   font-weight: 700;
-  cursor: pointer;
 }
 
 .logo-icon {
@@ -65,24 +64,41 @@ main {
 }
 
 .navbar-search {
-  background-color: #f3f3f3;
+  background-color: #f5f5f5;
   border: none;
   border-radius: 18px;
   width: min(560px, 100%);
   padding: 14px 18px;
 
   font-size: 14px;
-  outline: none;
+  outline: 3px solid transparent;
+  transition: outline-color 0.2s ease;
 }
 
 .navbar-search:focus {
-  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.25);
+  outline-color: rgba(139, 92, 246, 0.25);
+  animation: navbar-focus-pop 0.25s ease-out 1;
+}
+
+@keyframes navbar-focus-pop {
+  0% {
+    outline-color: rgba(139, 92, 246, 0);
+  }
+
+  60% {
+    outline-color: rgba(139, 92, 246, 0.35);
+  }
+
+  100% {
+    outline-color: rgba(139, 92, 246, 0.25);
+  }
 }
 
 .navbar-buttons {
   display: flex;
   align-items: center;
   gap: 12px;
+  
 }
 
 .navbar-buttons button {
@@ -93,10 +109,11 @@ main {
 
   font-size: 15px;
   cursor: pointer;
+  color: #737373;
 }
 
 .navbar-buttons button:hover {
-  background-color: #f3f3f3;
+  background-color: #f5f5f5;
 }
 
 .navbar-buttons .list-button {
@@ -111,6 +128,7 @@ main {
 .hero-section {
   text-align: center;
   padding: 96px 24px 80px;
+  margin: 0 48px;
 }
 
 .hero-badge {
@@ -183,9 +201,10 @@ main {
 
   font-size: 16px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07),
-              0 1px 3px rgba(0, 0, 0, 0.06);   
-  outline: none;
-  transition: border-color 0.2s ease;
+              0 1px 3px rgba(0, 0, 0, 0.06);
+
+  outline: 4px solid transparent;
+  transition: box-shadow 0.35s ease, border-color 0.2s ease;
 }
 
 .hero-search::placeholder {
@@ -198,10 +217,78 @@ main {
 }
 
 .hero-search:focus {
-  border-color: rgba(167, 139, 250, 0.5);       
-  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15), 
-              0 10px 15px rgba(0, 0, 0, 0.08);
+  border-color: rgba(167, 139, 250, 0.5);
+  outline-color: rgba(139, 92, 246, 0.15);
+  animation: focus-ring-pop 0.25s ease-out 1;
 }
 
+@keyframes focus-ring-pop {
+  0% {
+    outline-color: rgba(139, 92, 246, 0);
+    outline-width: 0px;
+  }
+
+  60% {
+    outline-color: rgba(139, 92, 246, 0.24);
+    outline-width: 5px;
+  }
+
+  100% {
+    outline-color: rgba(139, 92, 246, 0.15);
+    outline-width: 4px;
+  }
+}
+
+.categories-section {
+  display: flex;
+  gap: 8px;
+  margin: 0 48px;
+  flex-wrap: wrap;
+  padding: 0 0 24px 0;
+}
+
+.category-pill {
+  background-color:  #f5f5f5;
+  color: #737373;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.category-pill:hover {
+  color: #111111;
+  transform: translateY(-1px);
+}
+
+.category-pill.active {
+  background-color: #121212;
+  color: #fcfcfc;
+}
+
+.listings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 0 48px;
+}
+
+.listings-header h2 {
+  font-size: 20px;
+  color: #121212;
+}
+
+.listings-header .listings-count {
+  font-size: 14px;
+  color: #737373;
+
+}
 
 

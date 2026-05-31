@@ -1,11 +1,12 @@
 import Navbar from "../components/Navbar";
+import CategoryPills from "../components/CategoryPills";
 
 function Browse() {
     return (
         <main>
             <Navbar />
+
             <section className="hero-section">
-                
                 <div className="hero-badge">
                     <span className="badge-dot"></span>
                     Your personal marketplace
@@ -22,8 +23,15 @@ function Browse() {
                   type="text" 
                   placeholder="What are you looking for?"
                 />
-            
             </section>
+
+            <CategoryPills />
+
+            <section className="listings-header">
+                <h2>All Listings</h2> 
+                <span className="listings-count">0 items</span>
+            </section>
+
         </main>
     );
 }
